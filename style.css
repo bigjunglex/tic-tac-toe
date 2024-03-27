@@ -96,3 +96,14 @@
     box-shadow: inset 0 0 9px rgba(2, 48, 25, 0.8);
 }
 
+@media (max-width: 400px) {
+    .game {
+        width: 350px;
+        height: 400px;
+    }
+
+    .reset {
+        width: 100px;
+        height: 50px
+    }
+}
