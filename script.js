@@ -44,6 +44,8 @@ function gameRunner(
 
     let activeTurn = players[0];
     
+    const getBoard = () => board;
+
     const getActiceTurn = () => activeTurn; // na budushee dlya DOM elementov
 
     const changeTurns  = () => {
@@ -88,25 +90,30 @@ function gameRunner(
     // odin hod
 
     const oneRound = (index) => {
+        if (winCondition() || tieCondition()){
+            throw alert('Game Ended!')
+        }
         if (game.board[index] === 'X' || game.board[index] === 'O'){
             printRound();
-            throw new Error('Box already checked!')
+            throw alert('Box already checked!')
         }else{
             game.cellChanger(index, getActiceTurn().mark);
             
             if (winCondition()){
-                console.log(`${getActiceTurn().name} WON`)
-                printRound();
+                let winner = getActiceTurn().name;
+                activeTurn.name = `${winner} WON!`
+                // printRound();
             }else if(tieCondition()){
-                console.log("It's a tie!")
-                printRound();
+                activeTurn = {name: 'Its a tie!', mark: '(X / 0)'}
+                // printRound();
             }else{
                 changeTurns();
-                printRound();
+                // printRound();
 
             }
         }
     }
+
 
     const newGame = () => {
         game.resetBoard();
@@ -117,12 +124,53 @@ function gameRunner(
 
     printRound();
 
-    return {newGame, oneRound}
+    return {newGame, oneRound, getBoard, getActiceTurn}
 
 }
 
+function screenControler(){
+    let game = gameRunner();
+    const boardContainer = document.querySelector('.game')
+    const activeContainer = document.querySelector('.activeTurn')
+    const resetButton = document.querySelector('.reset')
 
-const game = gameRunner();
+    resetButton.addEventListener('click', () =>{
+        game = gameRunner();
+        screenUpdate();
+    })
+
+
+    const screenUpdate = () =>{
+        boardContainer.innerHTML = '';
+
+        const board = game.getBoard();
+        const activeTurn = game.getActiceTurn();
+
+        activeContainer.textContent = `${activeTurn.name} --> (${activeTurn.mark})`;
+
+        for (const i in board) {
+            const div = document.createElement('div');
+            div.classList.add('box');
+            if (typeof board[i] === 'number'){
+                div.textContent = ' '
+            }else{
+                div.textContent = board[i];
+            }
+            
+            div.addEventListener('click', function() {
+                game.oneRound(i);
+                screenUpdate()
+            });
+    
+            boardContainer.appendChild(div);
+        }
+
+    }
+
+    screenUpdate();
+}
+
+screenControler()
 
 
 

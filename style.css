@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.game__container {
+    font-family: "VT323", monospace;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+}
+
+.logo{
+    text-align: center;
+    padding: 20px;
+    font-size: 3em;
+}
+.player {
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    
+}
+
+.player__info-controls {
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game {
+    width: 600px;
+	height: 600px;
+	margin: 0 auto;
+    background-color: #34495e;
+    color: #fff;
+    border: 6px solid #2c3e50;
+    border-radius: 10px;
+    
+    display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+
+.box
+{
+    border: 6px solid #2c3e50;
+    border-radius: 2px;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.activeTurn{
+    padding: 10px;
+    
+}
+
+.reset{
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    font-family: VT323;
+    background-color: #26c073;
+    transition: all 0.4s;
+}
+
+.reset:hover{
+    background-color: #cad8d1;
+    box-shadow: inset 0 0 9px rgba(2, 48, 25, 0.8);
+}
+
