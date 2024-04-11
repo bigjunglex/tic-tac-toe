@@ -124,22 +124,56 @@ function gameRunner(
 
     printRound();
 
-    return {newGame, oneRound, getBoard, getActiceTurn}
+    return {newGame, oneRound, getBoard, getActiceTurn, playerOne, playerTwo}
 
 }
 
 function screenControler(){
+    //game variables
     let game = gameRunner();
-    const boardContainer = document.querySelector('.game')
-    const activeContainer = document.querySelector('.activeTurn')
-    const resetButton = document.querySelector('.reset')
+    const boardContainer = document.querySelector('.game');
+    const activeContainer = document.querySelector('.activeTurn');
+    //controls
+    const resetButton = document.querySelector('.reset');
+    const newGameButton = document.querySelector('.newgame');
+    
+    //modal window
+    const dialogCloseBtn = document.querySelector('.closeDialogButton');
+    const dialog = document.querySelector('dialog');
+    const playerForm = document.querySelector('form');
+    
+
+//-------------- new game and reset ----------------------------
+    playerForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+    
+        const playerName1 = document.getElementById('playerName1').value;
+        const playerName2 = document.getElementById('playerName2').value;
+        
+        dialog.close();
+        game = gameRunner(playerName1, playerName2);
+        screenUpdate();
+    });
+
+    newGameButton.addEventListener('click', () => {
+        dialog.showModal();
+    })
+    
+    dialogCloseBtn.addEventListener('click', () => {
+        dialog.close()
+    })
 
     resetButton.addEventListener('click', () =>{
-        game = gameRunner();
+        if (game && game.playerOne && game.playerTwo) {
+            game = gameRunner(game.playerOne, game.playerTwo);
+        } else {
+            game = gameRunner();
+        }
         screenUpdate();
     })
 
-
+    
+// ------------------------ Game update -------------------
     const screenUpdate = () =>{
         boardContainer.innerHTML = '';
 
@@ -174,4 +208,4 @@ screenControler()
 
 
 
-
+// gameRunner() for console version

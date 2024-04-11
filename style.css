@@ -80,7 +80,7 @@
     
 }
 
-.reset{
+.reset, .newgame{
     width: 80px;
     padding: 5px;
     border-radius: 5px;
@@ -91,10 +91,24 @@
     transition: all 0.4s;
 }
 
-.reset:hover{
+.reset:hover, .newgame:hover{
     background-color: #cad8d1;
     box-shadow: inset 0 0 9px rgba(2, 48, 25, 0.8);
 }
+
+dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    box-shadow: 0 0 0 50vmax rgba(3, 79, 85, 0.5);
+}
+
+
 
 @media (max-width: 400px) {
     .game {
