@@ -1,9 +1,11 @@
-Tic-Tac-Toe game
+# *_Tic-Tac-Toe game_*
 
-should do :
-1. playable tic-tac-toe from console
-2. adding UI
-3. players name can be changed
-4. start/ restart
-6. display result
-5. adjust for mobile
+### for [The Odin Project](https://www.theodinproject.com/)
+
+#### should do :
+* playable tic-tac-toe from console
+* adding UI
+* players name can be changed
+* art/ restart
+* display result
+* adjust for mobile
