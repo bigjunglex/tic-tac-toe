@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: linear-gradient(135deg, #d4a5a5, #d8b6b6);
 }
 
 .header{
@@ -43,7 +44,7 @@
 }
 
 .controls {
-    width: 100px;
+    width: 200px;
     display: flex;
     justify-content: space-between;
 }
@@ -75,6 +76,10 @@
 }
 
 
+.box:hover {
+    box-shadow: inset 0 0 9px rgba(148, 233, 190, 0.8);
+}
+
 .activeTurn{
     padding: 10px;
     
@@ -102,13 +107,73 @@ dialog {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    border-radius: 1em;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
     box-shadow: 0 0 0 50vmax rgba(3, 79, 85, 0.5);
 }
 
+.closeDialogButton {
+    padding: 4px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: none;
+    transition: all 0.3s;
+}
 
+.closeDialogButton:hover {
+    background-color: rgb(233, 6, 6);
+    color: #fff;
+}
+
+h2 {
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+
+}
+
+input {
+    border: 2px solid rgb(32, 212, 143);
+    border-radius: 1em;
+    padding: 5px 10px;
+}
+
+.submitPlayers {
+    padding: 10px;
+    grid-column: 2 / 3;
+    border-radius: 1em;
+    align-self: center;
+    justify-self: flex-end;
+    width: 50%;
+    height: 100%;
+    font-weight: 900;
+    background: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submitPlayers:hover {
+    background-color: #26c073;
+
+}
 
 @media (max-width: 400px) {
     .game {
