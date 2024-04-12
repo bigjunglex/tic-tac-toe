@@ -2,6 +2,8 @@
 
 ### for [The Odin Project](https://www.theodinproject.com/)
 
+#### *[live preview](https://bigjunglex.github.io/tic-tac-toe/)*
+
 #### should do :
 * playable tic-tac-toe from console
 * adding UI
